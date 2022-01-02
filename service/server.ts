@@ -4,6 +4,7 @@ import * as dotenv from "dotenv";
 import { MongoDB } from "./connection/mongoDB";
 import { auth } from "./routes/auth";
 import { product } from "./routes/product";
+import ErrorMiddleware from "./middleware/error"
 
 //use config.env file
 dotenv.config({ path: "config.env" });
@@ -19,6 +20,9 @@ bucketApp.get("/", (req: Request, res: Response) => {
   res.send("Hello this is server");
 });
 
+
+// Error middleware
+bucketApp.use(ErrorMiddleware)
 bucketApp.listen(Port, () => {
   console.log(`Server is live on http://localhost:${Port}`);
 });
