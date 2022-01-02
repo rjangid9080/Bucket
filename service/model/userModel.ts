@@ -32,12 +32,14 @@ const bucketUserData = new Schema<bucketUser>({
     password: {
         type: String,
         required: true,
-        minlength: 6
+        minlength: 6,
+        select:false
     },
     confirmPassword: {
         type: String,
         required: true,
-        minlength: 6
+        minlength: 6,
+        select:false
     },
     createdAt: {
         type : Date,
