@@ -69,27 +69,21 @@ const bucketProductModel = new Schema<productModel>({
     reviews : [
         {
             user : {
-                type : String , 
-                ref:"User",
-                required : true
+                type : String 
             } ,
             name : {
-                type : String , 
-                required : true
+                type : String 
             } ,
             rating : {
-                type : Number , 
-                required : true
+                type : Number 
             } , 
             comment : {
-                type : String , 
-                required : true
+                type : String 
             }
         }
     ] , 
     user : {
-        type : String , 
-        required : true
+        type : String 
     } , 
     createdAt : {
         type : Date ,
