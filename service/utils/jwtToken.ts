@@ -6,7 +6,7 @@ dotenv.config({ path: "config.env" });
 const Secret_Key: any = process.env.JWT_Secret_Key;
 const Cookie_Expire : any = process.env.Cookie_Expire;
 
-export default (user:any,statusCode:number,res:Response)=>{
+export const sendToken = (user:any,statusCode:number,res:Response)=>{
     const token = jwt.sign({ id: user._id, email: user.email }, Secret_Key);
     const options = {
         httpOnly:true,
@@ -21,4 +21,14 @@ export default (user:any,statusCode:number,res:Response)=>{
         token,
         message:"Logged In"
     })
+}
+
+export const verifyToken = (token:any)=>{
+    const data = jwt.verify(token,Secret_Key) as JwtPayload;
+    return data;
+}
+
+interface JwtPayload{
+    id:string,
+    email:string
 }

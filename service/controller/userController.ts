@@ -4,7 +4,7 @@ import ErrorHandler from "../utils/errorhandler";
 import asyncHandler from "../middleware/asyncHandler";
 import { registerValidation, loginValidation } from "../validation/validation";
 import bcrypt from "bcryptjs";
-import sendToken from "../utils/jwtToken";
+import { sendToken, verifyToken } from "../utils/jwtToken";
 import hashedPassword from "../utils/hashedPassword";
 
 export const registerUser: RequestHandler = asyncHandler(
@@ -61,10 +61,27 @@ export const loginUser: RequestHandler = asyncHandler(
   }
 );
 
-export const updateUser: RequestHandler = asyncHandler(
-  async (req: Request, res: Response, next: NextFunction) => {}
+export const updateProfile: RequestHandler = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { token } = req.cookies;
+    if (!token) {
+      return next(new ErrorHandler("Login First", 404));
+    }
+    const { id } = verifyToken(token);
+    const user = await userDB.findByIdAndUpdate(id,req.body,{new:true})
+    res.send(user);
+    
+  }
 );
 
 export const logoutUser: RequestHandler = asyncHandler(
-  async (req: Request, res: Response, next: NextFunction) => {}
+  async (req: Request, res: Response) => {
+    res
+      .cookie("token", null, {
+        httpOnly: true,
+        expires: new Date(Date.now()),
+      })
+      .status(200)
+      .send("Logged out");
+  }
 );
