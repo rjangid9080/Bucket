@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import bucketApp from "./app/app";
 import * as dotenv from "dotenv";
 import { MongoDB } from "./connection/mongoDB";
-import { auth } from "./routes/auth";
+import { user } from "./routes/user";
 import { product } from "./routes/product";
 import ErrorMiddleware from "./middleware/error"
 
@@ -15,7 +15,7 @@ MongoDB();
 
 const Port: string | undefined = process.env.PORT;
 bucketApp.use("/product", product);
-bucketApp.use("/user", auth);
+bucketApp.use("/user", user);
 bucketApp.get("/", (req: Request, res: Response) => {
   res.send("Hello this is server");
 });
