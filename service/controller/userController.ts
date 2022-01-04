@@ -176,9 +176,9 @@ export const resetPassword: RequestHandler = asyncHandler(
       },
       { new: true }
     );
-    await resetToken.delete()
+    await resetToken.delete();
     res.status(200).json({
-      message:"Password Reset Successfully"
-    })
+      message: "Password Reset Successfully",
+    });
   }
 );
