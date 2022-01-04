@@ -9,6 +9,7 @@ specifiers:
   '@types/jsonwebtoken': ^8.5.6
   '@types/morgan': ^1.9.3
   '@types/node': '*'
+  '@types/nodemailer': ^6.4.4
   axios: ^0.24.0
   bcryptjs: ^2.4.3
   cookie-parser: ^1.4.6
@@ -51,6 +52,7 @@ devDependencies:
   '@types/bcryptjs': 2.4.2
   '@types/cookie-parser': 1.4.2
   '@types/jsonwebtoken': 8.5.6
+  '@types/nodemailer': 6.4.4
 
 packages:
 
@@ -147,6 +149,12 @@ packages:
 
   /@types/node/16.11.12:
     resolution: {integrity: sha512-+2Iggwg7PxoO5Kyhvsq9VarmPbIelXP070HMImEpbtGCoyWNINQj4wzjbQCXzdHTRXnqufutJb5KAURZANNBAw==}
+
+  /@types/nodemailer/6.4.4:
+    resolution: {integrity: sha512-Ksw4t7iliXeYGvIQcSIgWQ5BLuC/mljIEbjf615svhZL10PE9t+ei8O9gDaD3FPCasUJn9KTLwz2JFJyiiyuqw==}
+    dependencies:
+      '@types/node': 16.11.12
+    dev: true
 
   /@types/qs/6.9.7:
     resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==}
