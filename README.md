@@ -6,9 +6,10 @@ Currently working on the backend.
 ## Developing
 This repo uses [pnpm](https://pnpm.io/) , to install it ...
 ```
-npm i -g pnpm 
+npm install -g pnpm 
 ```
-Install dependencies
+...then install dependencies
 ```
-pnpm i
+pnpm install
 ```
+to run bucketServer on your local host using `pnpm start`
