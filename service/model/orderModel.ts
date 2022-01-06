@@ -27,7 +27,7 @@ export interface orderModel {
   shippingPrice: number;
   totalPrice: number;
   orderStatus: string;
-  deliveredAt: any;
+  deliveredAt: Date;
   createdAt: Date;
   updatedAt: Date;
 }
